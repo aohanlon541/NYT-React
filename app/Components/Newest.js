@@ -1,11 +1,8 @@
-// Include React and React-Router dependencies
 var React = require('react');
-var Router = require('react-router')
+var Router = require('react-router');
 
-// Include the Helper (for the saved recall)
 var helpers = require('../utils/helpers');
 
-// Create the Main component
 var Main = React.createClass({
 
   getInitialState: function(){
@@ -25,14 +22,11 @@ var Main = React.createClass({
       }.bind(this))
   },
 
-  // /*This code handles the sending of the search terms to the parent Search component*/
   handleClick: function(item, event)  {
 
-    // Delete the list
     helpers.deleteSaved(item.title, item.date, item.url)
       .then(function(data){
 
-      // Get the revised list
       helpers.getSaved()
         .then(function(articleData){
 

@@ -1,12 +1,9 @@
-// Include Server Dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-//Require Schemas
 var Article = require('./models/Article.js');
 
-// Create Instance of Express
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -17,8 +14,10 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use(express.static('./public'));
 
-// var link = //mLab link goes here
-var link = 'mongodb://localhost/nytreact';
+var link = 'mongodb://heroku_zpgkpj4r:gnvnf7kmeruhl6caa68s0qr70e@ds151137.mlab.com:51137/heroku_zpgkpj4r';
+//Local link
+// var link = 'mongodb://localhost/nytreact';
+
 mongoose.connect(link);
 var db = mongoose.connection;
 
@@ -30,12 +29,10 @@ db.once('open', function () {
   console.log('Mongoose connection successful.');
 });
 
-// Main Route
 app.get('/', function(req, res){
   res.sendFile('./public/index.html');
 })
 
-// Route to get all saved articles
 app.get('/api/saved', function(req, res) {
 
   Article.find({})
@@ -50,11 +47,8 @@ app.get('/api/saved', function(req, res) {
     })
 });
 
-// Route to add an article to saved list
 app.post('/api/saved', function(req, res){
   var newArticle = new Article(req.body);
-
-  console.log(req.body)
 
   var title = req.body.title;
   var date = req.body.date;
@@ -69,7 +63,6 @@ app.post('/api/saved', function(req, res){
   });
 });
 
-// Route to delete an article from saved list
 app.delete('/api/saved/', function(req, res){
 
   var url = req.param('url');

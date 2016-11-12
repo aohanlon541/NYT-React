@@ -1,5 +1,4 @@
 node_modules
 *.log
 *.lock
-bundle.js
 homework_instructions.md

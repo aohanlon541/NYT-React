@@ -18,13 +18,11 @@ var Main = React.createClass({
         this.setState({
           savedArticles: articleData.data
         });
-        console.log("saved results", articleData.data);
+
       }.bind(this))
   },
 
   handleClick: function(item, event){
-    console.log("CLICKED");
-    console.log(item);
 
     helpers.deleteSaved(item.title, item.date, item.url)
       .then(function(data){
@@ -34,7 +32,7 @@ var Main = React.createClass({
           this.setState({
             savedArticles: articleData.data
           });
-          console.log("saved results", articleData.data);
+
         }.bind(this))
 
 

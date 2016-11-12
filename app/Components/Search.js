@@ -37,7 +37,7 @@ var Search = React.createClass({
   },
 
   setQuery: function(newQuery, newStart, newEnd){
-    console.log("TEST");
+
     this.setState({
       queryTerm: newQuery,
       startYear: newStart,
@@ -46,7 +46,6 @@ var Search = React.createClass({
   },
 
   render: function(){
-    console.log("Render Results", this.state.results)
 
     return(
 

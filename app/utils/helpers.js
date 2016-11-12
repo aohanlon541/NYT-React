@@ -1,16 +1,11 @@
-// Include the Axios library for HTTP requests
 var axios = require('axios');
 
-// NYT API Key
-var APIKey = "f91776ed061f4966bd01e763e7c0d3c7";
+var APIKey = '3dbfbf1bb1034c4bb5e8901725645c29';
 
-// Helper Functions (in this case the only one is runQuery)
 var helpers = {
 
-  // This will run API query.
   runQuery: function(term, start, end)  {
 
-    // Adjust to get search terms in proper format
     var term = term.trim();
     var start = start.trim() + "0101";
     var end = end.trim() + "1231";
@@ -20,7 +15,7 @@ var helpers = {
           'api-key': APIKey,
           'q': term,
           'begin_date': start,
-          'end_date': end     
+          'end_date': end
       }
     })
 

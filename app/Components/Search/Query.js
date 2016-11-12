@@ -46,15 +46,15 @@ var Query = React.createClass({
                       <input type="text" value={this.state.value} className="form-control " id="search" onChange= {this.handleChange} required/>
 
                       <h4 className=""><strong>Start Year (Required)</strong></h4>
-                      <input type="number" value={this.state.value} className="form-control " id="start" onChange= {this.handleChange} required/>
+                      <input value={this.state.value} className="form-control " id="start" onChange= {this.handleChange} required/>
 
                       <h4 className=""><strong>End Year (Required)</strong></h4>
-                      <input type="number" value={this.state.value} className="form-control " id="end" onChange= {this.handleChange} required/>
+                      <input value={this.state.value} className="form-control " id="end" onChange= {this.handleChange} required/>
 
                     </div>
 
                     <div className="pull-right">
-                      <button type="button" className="btn btn-classic" onClick={this.handleSubmit}><h4>Submit</h4></button>
+                      <button type="button" className="btn btn-primary" onClick={this.handleSubmit}><h4>Submit</h4></button>
                     </div>
                   </form>
 

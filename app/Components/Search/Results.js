@@ -14,12 +14,9 @@ var Results = React.createClass({
   },
 
   handleClick: function(item, event){
-    console.log("CLICKED");
-    console.log(item);
 
     helpers.postSaved(item.headline.main, item.pub_date, item.web_url)
       .then(function(data){
-        console.log(item.web_url);
       }.bind(this))
 
   },

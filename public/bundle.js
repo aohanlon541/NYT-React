@@ -27494,11 +27494,6 @@
 	              null,
 	              'New York Times Article Scrubber'
 	            )
-	          ),
-	          React.createElement(
-	            'h3',
-	            { className: 'text-center' },
-	            '(Search for and save articles of interest for later viewing)'
 	          )
 	        ),
 	        this.props.children
@@ -27550,7 +27545,7 @@
 	  },
 
 	  setQuery: function setQuery(newQuery, newStart, newEnd) {
-	    console.log("TEST");
+
 	    this.setState({
 	      queryTerm: newQuery,
 	      startYear: newStart,
@@ -27559,7 +27554,6 @@
 	  },
 
 	  render: function render() {
-	    console.log("Render Results", this.state.results);
 
 	    return React.createElement(
 	      'div',
@@ -27661,7 +27655,7 @@
 	                      "Start Year (Required)"
 	                    )
 	                  ),
-	                  React.createElement("input", { type: "number", value: this.state.value, className: "form-control ", id: "start", onChange: this.handleChange, required: true }),
+	                  React.createElement("input", { value: this.state.value, className: "form-control ", id: "start", onChange: this.handleChange, required: true }),
 	                  React.createElement(
 	                    "h4",
 	                    { className: "" },
@@ -27671,14 +27665,14 @@
 	                      "End Year (Required)"
 	                    )
 	                  ),
-	                  React.createElement("input", { type: "number", value: this.state.value, className: "form-control ", id: "end", onChange: this.handleChange, required: true })
+	                  React.createElement("input", { value: this.state.value, className: "form-control ", id: "end", onChange: this.handleChange, required: true })
 	                ),
 	                React.createElement(
 	                  "div",
 	                  { className: "pull-right" },
 	                  React.createElement(
 	                    "button",
-	                    { type: "button", className: "btn btn-classic", onClick: this.handleSubmit },
+	                    { type: "button", className: "btn btn-primary", onClick: this.handleSubmit },
 	                    React.createElement(
 	                      "h4",
 	                      null,
@@ -27722,12 +27716,8 @@
 	  },
 
 	  handleClick: function handleClick(item, event) {
-	    console.log("CLICKED");
-	    console.log(item);
 
-	    helpers.postSaved(item.headline.main, item.pub_date, item.web_url).then(function (data) {
-	      console.log(item.web_url);
-	    }.bind(this));
+	    helpers.postSaved(item.headline.main, item.pub_date, item.web_url).then(function (data) {}.bind(this));
 	  },
 
 	  render: function render() {
@@ -27852,21 +27842,16 @@
 /* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	// Include the Axios library for HTTP requests
 	var axios = __webpack_require__(241);
 
-	// NYT API Key
-	var APIKey = "f91776ed061f4966bd01e763e7c0d3c7";
+	var APIKey = '3dbfbf1bb1034c4bb5e8901725645c29';
 
-	// Helper Functions (in this case the only one is runQuery)
 	var helpers = {
 
-	  // This will run API query.
 	  runQuery: function runQuery(term, start, end) {
 
-	    // Adjust to get search terms in proper format
 	    var term = term.trim();
 	    var start = start.trim() + "0101";
 	    var end = end.trim() + "1231";
@@ -29113,13 +29098,10 @@
 	      this.setState({
 	        savedArticles: articleData.data
 	      });
-	      console.log("saved results", articleData.data);
 	    }.bind(this));
 	  },
 
 	  handleClick: function handleClick(item, event) {
-	    console.log("CLICKED");
-	    console.log(item);
 
 	    helpers.deleteSaved(item.title, item.date, item.url).then(function (data) {
 
@@ -29127,7 +29109,6 @@
 	        this.setState({
 	          savedArticles: articleData.data
 	        });
-	        console.log("saved results", articleData.data);
 	      }.bind(this));
 	    }.bind(this));
 	  },

@@ -5,8 +5,6 @@ var Router = require('react-router')
 // Include the Helper (for the saved recall)
 var helpers = require('../utils/helpers');
 
-console.log("Loaded newest");
-
 // Create the Main component
 var Main = React.createClass({
 
@@ -23,15 +21,12 @@ var Main = React.createClass({
         this.setState({
           newestArticle: articleData.data
         });
-        console.log("saved results", articleData.data);
+
       }.bind(this))
   },
 
   // /*This code handles the sending of the search terms to the parent Search component*/
   handleClick: function(item, event)  {
-
-    console.log("CLICKED");
-    console.log(item);
 
     // Delete the list
     helpers.deleteSaved(item.title, item.date, item.url)
@@ -40,12 +35,10 @@ var Main = React.createClass({
       // Get the revised list
       helpers.getSaved()
         .then(function(articleData){
-          
+
           this.setState({
             newestArticle: articleData.data
           });
-
-          console.log("saved results", articleData.data);
 
         }.bind(this))
 

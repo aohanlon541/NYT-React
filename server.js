@@ -1,7 +1,6 @@
 // Include Server Dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
-var logger = require('morgan');
 var mongoose = require('mongoose');
 
 //Require Schemas
@@ -9,10 +8,8 @@ var Article = require('./models/Article.js');
 
 // Create Instance of Express
 var app = express();
-var PORT = process.env.PORT || 3000; // Sets an initial port. We'll use this later in our listener
+var PORT = process.env.PORT || 3000;
 
-// Run Morgan for Logging
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
@@ -20,8 +17,9 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use(express.static('./public'));
 
-//mongoose.connect('mongodb://heroku_dzqdjbpp:m4q2mgf93oiqlk2h0os6ocgq3s@ds139655.mlab.com:39655/heroku_dzqdjbpp');
-mongoose.connect('mongodb://localhost/nytreact');
+// var link = //mLab link goes here
+var link = 'mongodb://localhost/nytreact';
+mongoose.connect(link);
 var db = mongoose.connection;
 
 db.on('error', function (err) {

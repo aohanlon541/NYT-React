@@ -2,7 +2,7 @@
 var React = require('react');
 
 // Query Component Declaration
-var Query = React.createClass({ 
+var Query = React.createClass({
 
   // Here we set initial variables for the component to be blanks
   getInitialState: function(){
@@ -13,7 +13,7 @@ var Query = React.createClass({
     }
   },
 
-  // Whenever we detect ANY change in the textbox, we register it. 
+  // Whenever we detect ANY change in the textbox, we register it.
     handleChange: function(event) {
       console.log("TEXT CHANGED");
 

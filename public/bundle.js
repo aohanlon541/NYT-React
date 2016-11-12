@@ -50,10 +50,8 @@
 	var ReactDOM = __webpack_require__(34);
 	var Router = __webpack_require__(172).Router;
 
-	// All the routes
 	var routes = __webpack_require__(235);
 
-	// Render the ccontents according to the routes page.
 	ReactDOM.render(React.createElement(
 	  Router,
 	  null,
@@ -27390,22 +27388,17 @@
 
 	'use strict';
 
-	// Inclue the React library
 	var React = __webpack_require__(1);
 
-	// Include the Router
 	var Router = __webpack_require__(172);
 	var Route = Router.Route;
 
-	//  Include the IndexRoute (catch-all route)
 	var IndexRoute = Router.IndexRoute;
 
-	// Reference the high-level components
 	var Main = __webpack_require__(236);
 	var Search = __webpack_require__(237);
 	var Saved = __webpack_require__(260);
 
-	// Export the Routes
 	module.exports = React.createElement(
 	  Route,
 	  { path: '/', component: Main },
@@ -27420,11 +27413,9 @@
 
 	'use strict';
 
-	// Include React and React-Router dependencies
 	var React = __webpack_require__(1);
 	var Router = __webpack_require__(172);
 
-	// Create the Main component
 	var Main = React.createClass({
 	  displayName: 'Main',
 
@@ -27510,18 +27501,7 @@
 	            '(Search for and save articles of interest for later viewing)'
 	          )
 	        ),
-	        this.props.children,
-	        React.createElement(
-	          'footer',
-	          null,
-	          React.createElement('hr', null),
-	          React.createElement(
-	            'p',
-	            { className: 'pull-right' },
-	            React.createElement('i', { className: 'fa fa-github', 'aria-hidden': 'true' }),
-	            'Built using React.js'
-	          )
-	        )
+	        this.props.children
 	      )
 	    );
 	  }
@@ -27535,24 +27515,18 @@
 
 	'use strict';
 
-	// Include React and React-Router dependencies
 	var React = __webpack_require__(1);
 	var Router = __webpack_require__(172);
 
-	// Include the Query and Results componens
 	var Query = __webpack_require__(238);
 	var Results = __webpack_require__(239);
 
-	// Include the Helper (for the query)
 	var helpers = __webpack_require__(240);
 
-	// Create the Main component
 	var Search = React.createClass({
 	  displayName: 'Search',
 
 
-	  /* Here we set the initial state variables (this allows us to propagate the variables for maniuplation by the children components */
-	  /* Also note the "resuls" state. This will be where we hold the data from our results */
 	  getInitialState: function getInitialState() {
 	    return {
 	      queryTerm: "",
@@ -27562,8 +27536,6 @@
 	    };
 	  },
 
-	  // This function gets called if the user searches for a completely new set of parameters (i.e. if any of the search terms changes)
-	  // If the user searches for the exact same thing, then React will ignore it.
 	  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
 
 	    if (this.state.queryTerm != "" && (prevState.queryTerm != this.state.queryTerm || prevState.startYear != this.state.startYear || prevState.endYear != this.state.endYear)) {
@@ -27577,9 +27549,6 @@
 	    }
 	  },
 
-	  // This function will be passed down into children components so they can change the "parent"
-	  // i.e we will pass this method to the query component that way it can change the main component
-	  // to perform a new search
 	  setQuery: function setQuery(newQuery, newStart, newEnd) {
 	    console.log("TEST");
 	    this.setState({
@@ -27589,7 +27558,6 @@
 	    });
 	  },
 
-	  // Render the function. Note how we deploy both the Query and the Results
 	  render: function render() {
 	    console.log("Render Results", this.state.results);
 
@@ -29124,14 +29092,11 @@
 
 	'use strict';
 
-	// Include React and React-Router dependencies
 	var React = __webpack_require__(1);
 	var Router = __webpack_require__(172);
 
-	// Include the Helper (for the saved recall)
 	var helpers = __webpack_require__(240);
 
-	// Create the Main component
 	var Main = React.createClass({
 	  displayName: 'Main',
 
@@ -29152,15 +29117,12 @@
 	    }.bind(this));
 	  },
 
-	  // This code handles the sending of the search terms to the parent Search component
 	  handleClick: function handleClick(item, event) {
 	    console.log("CLICKED");
 	    console.log(item);
 
-	    // Delete the list!
 	    helpers.deleteSaved(item.title, item.date, item.url).then(function (data) {
 
-	      // Get the revised list!
 	      helpers.getSaved().then(function (articleData) {
 	        this.setState({
 	          savedArticles: articleData.data

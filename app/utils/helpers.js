@@ -20,7 +20,6 @@ var helpers = {
     })
 
     .then(function(results){
-      console.log("Axios Results", results.data.response);
 
       return results.data.response;
 
@@ -31,7 +30,7 @@ var helpers = {
 
     return axios.get('/api/saved')
       .then(function(results){
-        console.log("axios results", results);
+
         return results;
       })
   },
@@ -41,7 +40,6 @@ var helpers = {
     var newArticle = {title: title, date: date, url: url};
     return axios.post('/api/saved', newArticle)
       .then(function(results){
-        console.log("axios results", results._id);
         return results._id;
       })
 
@@ -57,7 +55,6 @@ var helpers = {
       }
     })
     .then(function(results){
-      console.log("axios results", results);
       return results;
     })
   }

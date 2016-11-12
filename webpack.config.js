@@ -1,6 +1,6 @@
 module.exports = {
-  
-  // This code will be compiled 
+
+  // This code will be compiled
   entry: "./app/app.js",
 
   // Then output into this file
@@ -16,7 +16,7 @@ module.exports = {
         excluse: /(node_modules|bower_components)/,
         loader: 'babel',
         query: {
-          // These are the specific transformations we'll be using. 
+          // These are the specific transformations we'll be using.
           presets: ['react', 'es2015']
         }
       }

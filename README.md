@@ -1,10 +1,9 @@
 #NYT React Search
 
 ### Overview
+  A React-based tool that allows users to search for and save articles from The New York Times.
 
- A React-based tool that allows users to search for and save articles from The New York Times.
-
- #### This project utilizes the following technologies:
+#### This project utilizes the following technologies:
 1. Node
 2. Express
 3. MongoDB

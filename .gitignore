@@ -1,4 +1,5 @@
 node_modules
+.gitignore
 *.log
 *.lock
 homework_instructions.md

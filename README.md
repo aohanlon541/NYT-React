@@ -7,9 +7,9 @@
 1. Node
 2. Express
 3. MongoDB
-4. Mongoose ORM
+4. Mongoose ODM
 5. React
 
-[View the application live here!] (https://vast-falls-96353.herokuapp.com/#/saved?_k=3jqf0p)
+[View the application live on Heroku!] (https://vast-falls-96353.herokuapp.com/#/saved?_k=3jqf0p)
 
-![Imgur](http://i.imgur.com/3kIiHEr.gif)
+![](http://g.recordit.co/ObIxESDNsr.gif)
